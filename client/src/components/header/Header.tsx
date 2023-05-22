@@ -1,4 +1,4 @@
-export default function Header () {
+export default function Header() {
 
     return (
         <header className='w-full h-20 flex justify-between items-center px-24 py-5 fixed bg-white top-0'>
