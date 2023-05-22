@@ -1,0 +1,22 @@
+@import '../variables';
+
+
+form {
+    display: flex;
+    margin: 10vh auto;
+    width: 50%;
+    flex-direction: column;
+
+    input {
+        display: block;
+        margin-bottom: 3vh;
+        width: 100%;
+        padding: 1vh 1vw;
+        border: 1px solid #{$greyDark};
+        border-radius: 5px;
+    }
+
+    button {
+
+    }
+}
