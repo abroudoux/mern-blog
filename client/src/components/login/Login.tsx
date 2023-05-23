@@ -17,7 +17,7 @@ export default function Login() {
                 <button>Login</button>
             </form>
             <div>
-                <p>
+                <p id="account_actions">
                     Dont have an account yet ? <span><Link to="/register">Sign In</Link></span>
                 </p>
             </div>

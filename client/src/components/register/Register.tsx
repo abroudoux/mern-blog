@@ -1,5 +1,5 @@
 // React
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link} from 'react-router-dom';
 
 // Styles
@@ -8,10 +8,22 @@ import '../../styles/designs/forms.scss';
 
 export default function Register() {
 
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    const registerForm = async (ev: { preventDefault: () => void; }) => {
+        ev.preventDefault();
+        await fetch('http://localhost:4000/register', {
+            method: 'POST',
+            body: JSON.stringify({username,password}),
+            headers: {'Content-Type':'application/json'},
+        });
+    };
+
     useEffect(() => {
 
         const handlePasswordValidation = () => {
-            
+
             const passwordInput = document.getElementById('register_password') as HTMLInputElement;
             const requirementList = document.querySelectorAll('.requirement-list li') as NodeListOf<HTMLLIElement>;
 
@@ -50,9 +62,9 @@ export default function Register() {
             <h1>
                 Register
             </h1>
-            <form>
-                <input type="text" placeholder="username" />
-                <input type="password" placeholder="password" id="register_password" />
+            <form onSubmit={registerForm}>
+                <input type="text" placeholder="username" value={username} onChange={ev => setUsername(ev.target.value)}/> 
+                <input type="password" placeholder="password" id="register_password" value={password} onChange={ev => setPassword(ev.target.value)} />
                 <div>
                     <p>Password must contains ...</p>
                     <ul className="requirement-list">
