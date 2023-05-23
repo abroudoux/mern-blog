@@ -9,13 +9,13 @@ section {
         display: flex;
         justify-content: center;
     }
-    
+
     form {
         display: flex;
         margin: 10vh auto;
         width: 50%;
         flex-direction: column;
-    
+
         input {
             display: block;
             margin-bottom: 3vh;
@@ -24,7 +24,7 @@ section {
             border: 1px solid #{$greyDark};
             border-radius: 5px;
         }
-    
+
         button {
             padding: 1vh 1vw;
             border-radius: 5px;
@@ -35,9 +35,14 @@ section {
             margin: 5vh auto;
             color: #{$white};
         }
+
+        p {
+            font-size: 1.5rem;
+            padding: 2vh 0;
+        }
     }
     
-    p {
+    #account_actions {
         display: flex;
         justify-content: center;
         color: #{$greyDark};
@@ -50,6 +55,10 @@ section {
                 text-decoration: underline;
             }
         }
+    }
+
+    .valid {
+        color: #{$greyMedium};
     }
 
 }
