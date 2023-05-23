@@ -13,3 +13,5 @@ app.post('/register', (req,res) => {
 
 
 app.listen(4000);
+
+// mongodb+srv://blog:ekViwdgqQp7d2vyk@cluster0.hrxfist.mongodb.net/?retryWrites=true&w=majority
