@@ -5,10 +5,10 @@ const { model } = require('mongoose');
 // Schema
 const UserSchema = new mongoose.Schema({
     username: {type: String, required: true, min: 4, unique:true},
-    password: {type:String, reuired: true}
+    password: {type:String, required: true}
 });
 
-// Model
+// Model 
 const UserModel = new mongoose.model('User', UserSchema);
 
 // Export Model

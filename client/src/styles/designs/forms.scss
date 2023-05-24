@@ -34,6 +34,10 @@ section {
             width: auto;
             margin: 5vh auto;
             color: #{$white};
+
+            &:disabled {
+                background-color: lighten($color: #2A6786, $amount: 40);
+            }
         }
 
         p {
@@ -41,16 +45,16 @@ section {
             padding: 2vh 0;
         }
     }
-    
+
     #account_actions {
         display: flex;
         justify-content: center;
         color: #{$greyDark};
-    
+
         span {
             color: #{$blue};
             padding-left: .5vw;
-    
+
             &:hover {
                 text-decoration: underline;
             }

@@ -1,11 +1,11 @@
 // React
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link} from 'react-router-dom';
 
 // Styles
 import '../../styles/designs/forms.scss';
 
-// Function checkPasswoord
+// Function checkPassword
 import { checkPassword } from './checkPassword';
 
 
@@ -17,11 +17,15 @@ export default function Register() {
 
     const registerForm = async (ev: { preventDefault: () => void; }) => {
         ev.preventDefault();
+
         const response = await fetch('http://localhost:4000/register', {
-                            method: 'POST',
-                            body: JSON.stringify({username,password}),
-                            headers: {'Content-Type':'application/json'},
-                        });
+            method: 'POST',
+            body: JSON.stringify({username,password}),
+            headers: {
+                'Content-Type':'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },
+        });
 
         if (response.status === 200) {
             alert('Registration Succesful');
@@ -32,13 +36,12 @@ export default function Register() {
 
     useEffect(() => {
 
+        const passwordInput = document.getElementById('register_password') as HTMLInputElement;
+
         const handlePasswordValidation = () => {
-            const passwordInput = document.getElementById('register_password') as HTMLInputElement;
             const isValid = checkPassword(passwordInput.value);
             setPasswordValid(isValid);
         };
-
-        const passwordInput = document.getElementById('register_password') as HTMLInputElement;
 
         passwordInput.addEventListener("keyup", handlePasswordValidation);
 
@@ -90,7 +93,7 @@ export default function Register() {
                 <input type="text" placeholder="username" value={username} onChange={ev => setUsername(ev.target.value)}/> 
                 <input type="password" placeholder="password" id="register_password" value={password} onChange={ev => setPassword(ev.target.value)} className={passwordValid ? 'valid' : ''} />
                 <div>
-                    <p>Password must contains ...</p>
+                    <p>Password must contains</p>
                     <ul className="requirement-list">
                         <li>At least 8 characters length</li>
                         <li>At least 1 number</li>
@@ -99,6 +102,7 @@ export default function Register() {
                         <li>At least 1 uppercase letter</li>
                     </ul>
                 </div>
+                {/* <button disabled={!passwordValid}>Register</button> */}
                 <button>Register</button>
             </form>
             <div>
