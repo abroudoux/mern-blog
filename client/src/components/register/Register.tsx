@@ -84,11 +84,13 @@ export default function Register() {
 
     }, []);
 
+
     return (
+
         <section>
-            <h1>
-                Register
-            </h1>
+
+            <h1>Register</h1>
+
             <form onSubmit={registerForm}>
                 <input type="text" placeholder="username" value={username} onChange={ev => setUsername(ev.target.value)}/> 
                 <input type="password" placeholder="password" id="register_password" value={password} onChange={ev => setPassword(ev.target.value)} className={passwordValid ? 'valid' : ''} />
@@ -105,11 +107,11 @@ export default function Register() {
                 {/* <button disabled={!passwordValid}>Register</button> */}
                 <button>Register</button>
             </form>
+
             <div>
-                <p id="account_actions">
-                    Already have an account ? <span><Link to="/login">Log In</Link></span>
-                </p>
+                <p id="account_actions">Already have an account ? <span><Link to="/login">Log In</Link></span></p>
             </div>
+
         </section>
     )
 }
